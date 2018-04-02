@@ -3,12 +3,11 @@ var path = require('path')
 
 var app = express();
 
-process.env.PWD = process.cwd();
-app.use(express.static(path.join(process.env.PWD, 'client')));
+var port = process.env.PORT || 8000;
 
-// app.use(express.static('./client'));
+app.use(express.static(__dirname + './public'));
 
-app.listen(8000,(err,data)=>{
+app.listen(port,(err,data)=>{
     if(err) console.log(err);
     console.log("server is up and listening 8000");
 })
